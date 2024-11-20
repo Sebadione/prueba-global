@@ -2,7 +2,7 @@
 # Prueba Global
 
 ## 📋 Descripción
-Este proyecto es una API construida con **NestJS** que gestiona usuarios y perfiles, utilizando **MongoDB** como base de datos y **Swagger** para la documentación. Proporciona operaciones CRUD para manejar entidades como `User` y `Profile`. Proyecto realizado como prueba técnica.
+Este proyecto es una API construida con **NestJS** que gestiona usuarios y perfiles, utilizando **MongoDB Atlas** como base de datos en la nube y **Swagger** para la documentación. Proporciona operaciones CRUD para manejar entidades como `User` y `Profile`. Proyecto realizado como prueba técnica.
 
 ---
 
@@ -81,6 +81,5 @@ http://localhost:3000/api-docs
 
 ## 🛑 Requisitos
 - Node.js >= 16.x
-- MongoDB
 
 ---
