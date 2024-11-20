@@ -30,12 +30,12 @@ export class UserService {
   }
 
   async findAll(): Promise<User[]> {
-    return this.userModel.find().exec();
+    return this.userModel.find();
   }
 
-  async findOne(id: string): Promise<User> {
+  async findById(id: string): Promise<User> {
     this.validateObjectId(id);
-    const user = await this.userModel.findById(id).exec();
+    const user = await this.userModel.findById(id);
     if (!user) throw new NotFoundException('User not found');
     return user;
   }
@@ -53,7 +53,7 @@ export class UserService {
       await this.checkIfEmailExists(userData.email);
     }
 
-    const updatedUser = await this.userModel.findByIdAndUpdate(id, userData, { new: true }).exec();
+    const updatedUser = await this.userModel.findByIdAndUpdate(id, userData, { new: true });
     if (!updatedUser) throw new NotFoundException('User not found');
     return updatedUser;
   }
