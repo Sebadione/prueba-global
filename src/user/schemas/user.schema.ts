@@ -1,5 +1,4 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import e from 'express';
 import { Document } from 'mongoose';
 
 export type UserDocument = User & Document;
@@ -7,10 +6,7 @@ export type UserDocument = User & Document;
 @Schema()
 export class Profile extends Document {
 
-  @Prop( { required: true })
-  id: number;
-
-  @Prop( { required: true, unique: true })
+  @Prop( { required: true})
   name: string;
 
 }
@@ -18,8 +14,6 @@ export class Profile extends Document {
 @Schema()
 export class User extends Document {
 
-  @Prop( { required: true })
-  id: number;
 
   @Prop( { required: true })
   username: string;
@@ -39,3 +33,10 @@ export class User extends Document {
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
+
+UserSchema.set('toJSON', {
+  transform: (_doc, ret) => {
+    delete ret.__v; // Elimina el campo __v 
+    return ret;
+  },
+});

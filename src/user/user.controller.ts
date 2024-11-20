@@ -6,11 +6,6 @@ import { CreateUserDTO, UpdateUserDTO } from './dto/user.dto';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
-  create(@Body(new ValidationPipe( {whitelist: true})) userData: CreateUserDTO) {
-    return this.userService.create(userData);
-  }
-
   @Get()
   findAll() {
     return this.userService.findAll();
@@ -19,6 +14,11 @@ export class UserController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.userService.findOne(id);
+  }
+
+  @Post()
+  create(@Body(new ValidationPipe( {whitelist: true})) userData: CreateUserDTO) {
+    return this.userService.create(userData);
   }
 
   @Put(':id')

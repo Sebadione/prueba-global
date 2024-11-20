@@ -4,18 +4,12 @@ import { PartialType } from '@nestjs/mapped-types';
 
 class ProfileDTO {
 
-  @IsNumber()
-  id: number;
-
   @IsNotEmpty()
   name: string;
 
 }
 
 export class CreateUserDTO {
-
-  @IsNumber() @IsNotEmpty()
-  id: number;
 
   @IsNotEmpty()
   username: string;
