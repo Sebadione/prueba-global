@@ -1,6 +1,5 @@
-import { IsEmail, IsNotEmpty, IsNumber, ValidateNested } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsNumber, IsOptional, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
-import { PartialType } from '@nestjs/mapped-types';
 
 class ProfileDTO {
 
@@ -29,4 +28,26 @@ export class CreateUserDTO {
   
 }
 
-export class UpdateUserDTO extends PartialType(CreateUserDTO) {}
+export class UpdateUserDTO {
+
+  @IsOptional()
+  @IsNotEmpty()
+  username?: string;
+
+  @IsOptional()
+  @IsNotEmpty()
+  password?: string;
+
+  @IsOptional()
+  @IsEmail()
+  email?: string;
+
+  @IsOptional()
+  @IsNumber()
+  age?: number;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ProfileDTO)
+  profile?: ProfileDTO;
+}
