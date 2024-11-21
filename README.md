@@ -21,6 +21,12 @@ Este proyecto es una API construida con **NestJS** que gestiona usuarios y perfi
 
 Si prefieres ejecutar este proyecto usando Docker, sigue estos pasos:
 
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/Sebadione/prueba-global.git
+   cd prueba-global
+   ```
+
 1. **Construir la imagen de Docker**:
    En el directorio raíz del proyecto, ejecuta el siguiente comando para construir la imagen Docker:
    ```bash
