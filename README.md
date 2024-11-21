@@ -2,7 +2,7 @@
 # Prueba Global
 
 ## 📋 Descripción
-Este proyecto es una API construida con **NestJS** que gestiona usuarios y perfiles, utilizando **MongoDB Atlas** como base de datos en la nube y **Swagger** para la documentación. Proporciona operaciones CRUD para manejar entidades como `User` y `Profile`. Proyecto realizado como prueba técnica.
+Este proyecto es una API construida con **NestJS** que gestiona usuarios y perfiles, utilizando **MongoDB Atlas** como base de datos en la nube y **Swagger** para la documentación. Proporciona operaciones CRUD para manejar entidades como User y Profile. Proyecto realizado como prueba técnica.
 
 ---
 
@@ -13,6 +13,7 @@ Este proyecto es una API construida con **NestJS** que gestiona usuarios y perfi
 - **Validación** con `class-validator`.
 - **Documentación** de API con **Swagger**.
 - **Base de datos**: MongoDB mediante **Mongoose**.
+- **Ruta base de la API**: /api/v1.
 
 ---
 
@@ -33,9 +34,18 @@ Si prefieres ejecutar este proyecto usando Docker, sigue estos pasos:
    ```
 
 3. **Accede a la API**:
-   La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
+   La aplicación estará disponible en [http://localhost:3000/api/v1](http://localhost:3000/api/v1).
 
-## 🚀 Instalación
+---
+
+Si prefieres usar Docker Compose para gestionar la ejecución, sigue estos pasos:
+
+1. **Inicia la aplicación**:
+   Ejecuta el siguiente comando en el directorio raíz del proyecto:
+   ```bash
+   docker-compose up --build
+
+## 🚀 Instalación sin Docker
 
 1. **Clonar el repositorio**:
    ```bash
@@ -76,6 +86,16 @@ http://localhost:3000/api-docs
 - `POST /users`: Crear un nuevo usuario.
 - `PUT /users/:id`: Actualizar un usuario por ID.
 - `DELETE /users/:id`: Eliminar un usuario por ID.
+
+---
+
+## ✅ **Pruebas**
+Este proyecto incluye pruebas unitarias para los endpoints GET.
+
+1. **Ejecutar pruebas**:
+   ```bash
+   npm run test
+   ```
 
 ---
 
