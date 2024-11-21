@@ -23,6 +23,7 @@ describe('UsersService', () => {
   }
   const mockService = {
     findById: jest.fn(),
+    find: jest.fn(),
   }
 
   beforeEach(async () => {
@@ -66,5 +67,16 @@ describe('UsersService', () => {
       expect(model.findById).toHaveBeenCalledWith(mockUser._id);
     });
 
+  });
+
+  describe('findAll', () => {
+    it('should return all users', async () => {
+      jest.spyOn(model, 'find').mockResolvedValue([mockUser]);
+      
+      const result = await service.findAll();
+
+      expect(model.find).toHaveBeenCalled();
+      expect(result).toEqual([mockUser]);
+    });
   });
 });
