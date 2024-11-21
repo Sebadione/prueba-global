@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable, NotFoundException, ConflictException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
-import { User } from './schemas/user.schema';
-import { CreateUserDTO, UpdateUserDTO } from './dto/user.dto';
+import { User } from './schemas/users.schema';
+import { CreateUserDTO, UpdateUserDTO } from './dto/users.dto';
 
 @Injectable()
-export class UserService {
+export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   // Verificar si el correo electrónico ya está registrado

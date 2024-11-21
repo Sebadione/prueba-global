@@ -1,13 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UserService } from './user.service';
+import { UsersService } from './users.service';
 import { getModelToken } from '@nestjs/mongoose'
-import { User } from './schemas/user.schema';
+import { User } from './schemas/users.schema';
 import { Model } from 'mongoose';
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 
-describe('UserService', () => {
+describe('UsersService', () => {
 
-  let service: UserService;
+  let service: UsersService;
   let model: Model<User>;
 
   const mockUser = {
@@ -27,7 +27,7 @@ describe('UserService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [UserService,
+      providers: [UsersService,
         {
           provide: getModelToken(User.name),
           useValue: mockService,
@@ -36,7 +36,7 @@ describe('UserService', () => {
       ],
     }).compile();
 
-    service = module.get<UserService>(UserService);
+    service = module.get<UsersService>(UsersService);
     model = module.get<Model<User>>(getModelToken(User.name));
   });
 
