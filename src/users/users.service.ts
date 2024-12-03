@@ -1,4 +1,9 @@
-import { BadRequestException, Injectable, NotFoundException, ConflictException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+  ConflictException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { User } from './schemas/users.schema';
@@ -53,7 +58,9 @@ export class UsersService {
       await this.checkIfEmailExists(userData.email);
     }
 
-    const updatedUser = await this.userModel.findByIdAndUpdate(id, userData, { new: true });
+    const updatedUser = await this.userModel.findByIdAndUpdate(id, userData, {
+      new: true,
+    });
     if (!updatedUser) throw new NotFoundException('User not found');
     return updatedUser;
   }

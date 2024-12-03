@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, ValidationPipe } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  ValidationPipe,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDTO, UpdateUserDTO } from './dto/users.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -19,7 +28,9 @@ export class UsersController {
   }
 
   @Post()
-  create(@Body(new ValidationPipe( {whitelist: true})) userData: CreateUserDTO) {
+  create(
+    @Body(new ValidationPipe({ whitelist: true })) userData: CreateUserDTO,
+  ) {
     return this.usersService.create(userData);
   }
 
